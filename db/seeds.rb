@@ -10,8 +10,7 @@
 Listing.create(
   title: "Listing #{num}",
   subject: "Subject #{num}",
-  description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vel feugiat lorem, et placerat diam.",
-  user_id: 1
+  description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vel feugiat lorem, et placerat diam."
 )
 
 end
