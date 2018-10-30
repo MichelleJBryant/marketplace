@@ -10,6 +10,11 @@ class ListingsController < ApplicationController
   # GET /listings/1
   # GET /listings/1.json
   def show
+    @comments = @listing.comments
+    @comment = Comment.new(params[:body])
+  end
+
+  def add_comment
   end
 
   # GET /listings/new
@@ -25,7 +30,7 @@ class ListingsController < ApplicationController
   # POST /listings.json
   def create
     @listing = Listing.new(listing_params)
-
+    @listing.user_id = current_user
     respond_to do |format|
       if @listing.save
         format.html { redirect_to @listing, notice: 'Listing was successfully created.' }
