@@ -5,6 +5,7 @@
 <table>
   <thead>
     <tr>
+      <th>User</th>
       <th>Title</th>
       <th>Subject</th>
       <th>Description</th>
@@ -15,6 +16,7 @@
   <tbody>
     <% @listings.each do |listing| %>
       <tr>
+        <td><%= listing.user.email %></td>
         <td><%= listing.title %></td>
         <td><%= listing.subject %></td>
         <td><%= listing.description %></td>
