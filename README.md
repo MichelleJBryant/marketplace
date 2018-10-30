@@ -48,3 +48,4 @@ Rails App - Created By Michelle, Mitch and Glenn
 ### 21. Discuss and analyse requirements related to information system security.
 ### 22. Discuss methods you will use to protect information and data.
 ### 23. Research what your legal obligations are in relation to handling user data.
+### 24. Testing
