@@ -11,7 +11,7 @@ class ListingsController < ApplicationController
   # GET /listings/1.json
   def show
     @comments = @listing.comments
-    @comment = Comment.new(params[:body])
+    @comment = Comment.new
   end
 
   def add_comment
@@ -31,6 +31,7 @@ class ListingsController < ApplicationController
   def create
     @listing = Listing.new(listing_params)
     @listing.user_id = current_user
+
     respond_to do |format|
       if @listing.save
         format.html { redirect_to @listing, notice: 'Listing was successfully created.' }
@@ -76,4 +77,5 @@ class ListingsController < ApplicationController
     def listing_params
       params.require(:listing).permit(:title, :description, :subject)
     end
+
 end

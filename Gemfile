@@ -16,6 +16,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'dotenv-rails', '~> 2.5'
 end
 
 group :development do
@@ -33,11 +34,14 @@ end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
+# LIST OF GEMS ADDED
 # Devise
 gem 'devise', '~> 4.5'
-
 # Bootstrap v4
 gem 'bootstrap', '~> 4.1.3'
-
 # jQuery
 gem 'jquery-rails'
+# Font Awesome
+gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.4'
+
+gem 'omniauth-facebook'

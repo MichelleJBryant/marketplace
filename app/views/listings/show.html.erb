@@ -20,6 +20,7 @@
 
     <div class="actions mb-5">
       <%= link_to 'Edit Listing', edit_listing_path(@listing), class: 'btn btn-primary mr-2' %>
+      <%= link_to 'Delete Listing', @listing, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
       <%= link_to 'Back', listings_path, class: 'btn btn-default' %>
     </div>
 
@@ -56,10 +57,11 @@
           <div class="card-body">
             <h1 class="card-title pricing-card-title">$10 AUD</h1>
             <ul class="list-unstyled mt-3 mb-4">
-              <li>- 10 users included</li>
-              <li>- 2 GB of storage</li>
-              <li>- Email support</li>
-              <li>- Help center access</li>
+              <p class="text-muted">What's included?</p>
+              <li><%= fa_icon "check-circle", text: "10 pages of content" %></li>
+              <li><%= fa_icon "check-circle", text: "Email Support" %></li>
+              <li><%= fa_icon "check-circle", text: "Future Updates" %></li>
+              <li><%= fa_icon "check-circle", text: "30 Day Guarentee" %></li>
             </ul>
             <button type="button" class="btn btn-lg btn-block btn-success">Add To Cart</button>
           </div>
