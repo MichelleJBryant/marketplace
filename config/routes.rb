@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :listings
-  devise_for :users
   resources :charges
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   post 'listings/add_comment'
   get "about", to: "pages#about"
   get "contact_us", to: "pages#contact"
