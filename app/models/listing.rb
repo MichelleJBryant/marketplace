@@ -3,4 +3,4 @@ class Listing < ApplicationRecord
   validates :description, presence: true
   validates :subject, presence: true
   has_many :comments
-end
+  end
