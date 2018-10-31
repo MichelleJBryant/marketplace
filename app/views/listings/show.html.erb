@@ -15,5 +15,25 @@
   <%= @listing.description %>
 </p>
 
+<h2>Comments</h2>
+
+<p>There are no comments to display</p>
+
+<% @comments.each do |comment| %>
+  <p><%= comment.body %></p>
+<% end %>
+
+<% if user_signed_in? %>
+  <%= form_for @comment,  url: { controller: "listings", action: "add_comment" } do |f| %>
+    <div class="form-group">
+      <%= f.label :body %>
+      <%= f.text_area :body, class: "form-control" %>
+    </div>
+    <div class="actions">
+      <%= f.submit 'Create Comment', class: "btn btn-primary" %>
+    </div>
+  <% end %>
+<% end %>
+
 <%= link_to 'Edit', edit_listing_path(@listing) %> |
 <%= link_to 'Back', listings_path %>
