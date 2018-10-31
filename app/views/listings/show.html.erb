@@ -1,39 +1,70 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @listing.title %>
-</p>
-
-<p>
-  <strong>Subject:</strong>
-  <%= @listing.subject %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @listing.description %>
-</p>
-
-<h2>Comments</h2>
-
-<p>There are no comments to display</p>
-
-<% @comments.each do |comment| %>
-  <p><%= comment.body %></p>
-<% end %>
-
-<% if user_signed_in? %>
-  <%= form_for @comment,  url: { controller: "listings", action: "add_comment" } do |f| %>
-    <div class="form-group">
-      <%= f.label :body %>
-      <%= f.text_area :body, class: "form-control" %>
+<div class="row">
+  <div class="col-md-8">
+    <div class="listing-image">
+      <img src="https://via.placeholder.com/750x500" alt="Listing image" class="img-fluid img-thumbnail" >
     </div>
-    <div class="actions">
-      <%= f.submit 'Create Comment', class: "btn btn-primary" %>
-    </div>
-  <% end %>
-<% end %>
 
-<%= link_to 'Edit', edit_listing_path(@listing) %> |
-<%= link_to 'Back', listings_path %>
+    <h2 class="mt-2 mb-3">
+      <%= @listing.title %>
+    </h2>
+
+    <p>
+      <strong>Subject:</strong>
+      <%= @listing.subject %>
+    </p>
+
+    <p>
+      <strong>Description:</strong>
+      <%= @listing.description %>
+    </p>
+
+    <div class="actions mb-5">
+      <%= link_to 'Edit Listing', edit_listing_path(@listing), class: 'btn btn-primary mr-2' %>
+      <%= link_to 'Back', listings_path, class: 'btn btn-default' %>
+    </div>
+
+    <hr>
+
+    <div class="comments mb-5">
+      <h4>Ask a question?</h4>
+
+      <p>Be the first to ask undefined a question about this product.</p>
+
+      <% @comments.each do |comment| %>
+        <p><%= comment.body %></p>
+      <% end %>
+
+      <% if user_signed_in? %>
+        <%= form_for @comment,  url: { controller: "listings", action: "add_comment" } do |f| %>
+          <div class="form-group">
+            <%= f.label :body %>
+            <%= f.text_area :body, class: "form-control" %>
+          </div>
+          <div class="actions">
+            <%= f.submit 'Create Comment', class: "btn btn-primary" %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+      <div class="card mb-4 shadow-sm sticky">
+          <div class="card-header">
+            <h4 class="my-0 font-weight-normal"><%= @listing.title %></h4>
+          </div>
+          <div class="card-body">
+            <h1 class="card-title pricing-card-title">$10 AUD</h1>
+            <ul class="list-unstyled mt-3 mb-4">
+              <li>- 10 users included</li>
+              <li>- 2 GB of storage</li>
+              <li>- Email support</li>
+              <li>- Help center access</li>
+            </ul>
+            <button type="button" class="btn btn-lg btn-block btn-success">Add To Cart</button>
+          </div>
+      </div>
+  </div>
+
+</div>
+
