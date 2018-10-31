@@ -6,4 +6,10 @@ local:
   service: Disk
   root: <%= Rails.root.join("storage") %>
 
+  cloudinary: 
+    service: cloudinary
+    cloud_name: leffers
+    api_key: 841684111317618
+    api_secret: ud29V0396LeKGsmqtEjc7WU-Jdg
+
 

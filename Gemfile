@@ -41,3 +41,8 @@ gem 'bootstrap', '~> 4.1.3'
 
 # jQuery
 gem 'jquery-rails'
+gem "cloudinary", "~> 1.9"
+
+gem "activestorage-cloudinary-service", "~> 0.2.0"
+
+gem "image_processing", "~> 1.7"
