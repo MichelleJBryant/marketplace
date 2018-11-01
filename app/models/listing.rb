@@ -1,9 +1,8 @@
 require 'cloudinary'
 
 class Listing < ApplicationRecord
-  validates :title, presence: true
-  validates :description, presence: true
-  validates :subject, presence: true
+  validates :title, :description, :subject, :price, :resource_type, presence: true
+
   has_many :comments
   has_one_attached :image
 
