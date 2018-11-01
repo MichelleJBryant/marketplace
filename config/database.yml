@@ -25,8 +25,8 @@ development:
   <<: *default
   database: marketplace_development
 
-  username: postgres
-  password: Warhammer1
+  username: <%= ENV['DB_USERNAME'] %>
+  password: <%= ENV['DB_PASSWORD'] %>
   host: localhost
   port: 5432
 
