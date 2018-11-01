@@ -5,6 +5,7 @@ class Listing < ApplicationRecord
 
   has_many :comments
   has_one_attached :image
+  belongs_to :user
 
   def image_tag
     cl_image_tag(self.image.key, :width=>730, :crop=>"fit")
