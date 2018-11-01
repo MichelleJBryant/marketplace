@@ -12,6 +12,7 @@ class ListingsController < ApplicationController
   def show
     @comments = @listing.comments
     @comment = Comment.new
+    @user_listings = @listing.user.listings.order('created_at DESC').limit(2)
   end
 
   def add_comment
