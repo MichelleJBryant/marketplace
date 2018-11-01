@@ -16,7 +16,7 @@
   <div class="col-md-4">
       <div class="card mb-4 shadow-sm">
         <% if listing.image.attached? %>
-            <%= cl_image_tag(listing.image.key, :width=>100, :crop=>"fit") %>
+            <%= cl_image_tag(listing.image.key, options = {class: 'img-fluid'}) %>
         <% end %>
         <div class="card-body">
           <h5 class="card-title"><%= listing.title %></h5>
@@ -24,12 +24,6 @@
           <div class="d-flex align-items-center justify-content-between">
             <%= link_to 'View Listing', listing, class: "btn btn-success" %>
             <p class="lead m-0"><%= number_to_currency(listing.price) %></p>
-            
-          <% if listing.updated_at > listing.created_at %>          
-          <%= "edited " + time_ago_in_words(listing.updated_at) + " ago" %>
-          <% else %>
-          <%= "created " + time_ago_in_words(listing.created_at) + " ago" %>
-          <% end %>
           </div>
         </div>
       </div>

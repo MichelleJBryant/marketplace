@@ -1,13 +1,14 @@
 <div class="row">
   <div class="col-md-8">
     <div class="listing-image">
-      <%= image_tag @listing.image %>
       <% if @listing.image.attached? %>
-          <%= cl_image_tag(@listing.image.key) %>
+          <%= cl_image_tag(@listing.image.key, options = {class: 'img-fluid img-thumbnail'}) %>
       <% end %>
     </div>
 
-    <h2 class="mt-2 mb-3">
+    <hr>
+
+    <h2 class="my-3">
       <%= @listing.title %>
     </h2>
 
@@ -82,6 +83,11 @@
               <li><%= fa_icon "check-circle", text: "30 Day Guarentee" %></li>
             </ul>
               <%= link_to 'Buy Now!', charges_path, method: 'post', class: 'btn d-block btn-success py-3' %>
+              <% if @listing.updated_at > @listing.created_at %>          
+              <%= "edited " + time_ago_in_words(@listing.updated_at) + " ago" %>
+              <% else %>
+              <%= "created " + time_ago_in_words(@listing.created_at) + " ago" %>
+              <% end %>
           </div>
       </div>
   </div>
