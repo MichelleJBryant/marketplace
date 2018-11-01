@@ -10,7 +10,10 @@
 Listing.create(
   title: "Listing #{num}",
   subject: "Subject #{num}",
-  description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vel feugiat lorem, et placerat diam."
+  description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vel feugiat lorem, et placerat diam.",
+  price: 5,
+  grade: "Grade #{num}",
+  resource_type: "Resource #{num}"
 )
 
 end
