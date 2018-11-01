@@ -4,7 +4,7 @@ class ListingsController < ApplicationController
   # GET /listings
   # GET /listings.json
   def index
-    @listings = Listing.all
+    @listings = Listing.all.order(created_at: :desc)
   end
 
   # GET /listings/1
@@ -31,7 +31,7 @@ class ListingsController < ApplicationController
   def create
     @listing = Listing.new(listing_params)
     @listing.user_id = current_user
-
+    @listing.image.attach(listing_params[:image])
     respond_to do |format|
       if @listing.save
         format.html { redirect_to @listing, notice: 'Listing was successfully created.' }
@@ -75,7 +75,6 @@ class ListingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def listing_params
-      params.require(:listing).permit(:title, :description, :subject, :price, :grade, :resource_type)
+      params.require(:listing).permit(:title, :description, :subject, :price, :grade, :resource_type, :image)
     end
-
 end

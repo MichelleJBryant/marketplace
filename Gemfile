@@ -41,6 +41,13 @@ gem 'devise', '~> 4.5'
 gem 'bootstrap', '~> 4.1.3'
 # jQuery
 gem 'jquery-rails'
+
+gem "cloudinary", "~> 1.9"
+
+gem "activestorage-cloudinary-service", "~> 0.2.0"
+
+gem "image_processing", "~> 1.7"
+
 # Font Awesome
 gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.4'
 
@@ -48,3 +55,4 @@ gem 'omniauth-facebook'
 
 # Stripe
 gem 'stripe'
+
