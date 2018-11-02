@@ -11,6 +11,7 @@ class ListingsController < ApplicationController
   # GET /listings/1.json
   def show
     @user_listings = @listing.user.listings.order('created_at DESC').limit(2)
+    session[:listing_id] = params[:id]
   end
 
   # GET /listings/new
