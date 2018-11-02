@@ -67,25 +67,15 @@
     <hr>
 
     <div class="comments mb-5">
-      <h4>Ask a question?</h4>
+      <h4 class="my-3 p-4 text-white bg-dark">Product Questions & Answers</h4>
+      <hr>
 
-      <p>Be the first to ask undefined a question about this product.</p>
+      <p><%= @listing.comments.count %> Questions Asked...</p>
+      <%= render @listing.comments %>
 
-      <% @comments.each do |comment| %>
-        <p><%= comment.body %></p>
-      <% end %>
-
-      <% if user_signed_in? %>
-        <%= form_for @comment,  url: { controller: "listings", action: "add_comment" } do |f| %>
-          <div class="form-group">
-            <%= f.label :body %>
-            <%= f.text_area :body, class: "form-control" %>
-          </div>
-          <div class="actions">
-            <%= f.submit 'Create Comment', class: "btn btn-primary" %>
-          </div>
-        <% end %>
-      <% end %>
+      <hr>
+      <p class="lead">Ask a Question:</p>
+      <%= render 'comments/form' %>
     </div>
 
   </div>

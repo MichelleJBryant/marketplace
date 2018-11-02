@@ -1,5 +1,5 @@
 class ListingsController < ApplicationController
-  before_action :set_listing, only: [:show, :edit, :update, :destroy, :add_comment]
+  before_action :set_listing, only: [:show, :edit, :update, :destroy]
 
   # GET /listings
   # GET /listings.json
@@ -10,13 +10,7 @@ class ListingsController < ApplicationController
   # GET /listings/1
   # GET /listings/1.json
   def show
-    @comments = @listing.comments
-    @comment = Comment.new
     @user_listings = @listing.user.listings.order('created_at DESC').limit(2)
-  end
-
-  def add_comment
-    @comment = @listing.comments.new(comment_params)
   end
 
   # GET /listings/new
@@ -79,9 +73,5 @@ class ListingsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def listing_params
       params.require(:listing).permit(:title, :description, :subject, :price, :grade, :resource_type, :image)
-    end
-
-    def comment_params
-      params.require(:listing).permit(:body)
     end
 end

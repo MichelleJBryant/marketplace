@@ -1,17 +1,25 @@
 class CommentsController < ApplicationController
+    before_action :authenticate_user!, except: [:index]
+    before_action :find_article!
 
-   def create
-        @listing = Listing.find(params[:id])
-        @comment = @listing.comments.create(params[:comment].permit(:body))
-        redirect_to listings_path(@listing)
+    def index
+        @comments = @listing.comments.order(created_at: :desc)
     end
 
-    def destroy
-        @listing = Listing.find(params[:id])
-        @comment = @listing.comments.find(params[:id])
-        @comment.destroy
-        redirect_to listings_path(@listing)
+    def create
+        @comment = @listing.comments.new(comment_params)
+        @comment.user = current_user
+        @comment.save
+        redirect_to listing_path(@listing)
     end
 
+    private
+    def find_article!
+        @listing = Listing.find(params[:listing_id])
+    end
+
+    def comment_params
+        params.require(:comment).permit(:body)
+    end
 
 end

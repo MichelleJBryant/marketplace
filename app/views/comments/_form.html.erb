@@ -1,0 +1,10 @@
+
+<%= form_for([@listing, @listing.comments.build]) do |f| %>  
+    <p>
+      <%= f.text_area :body, class: 'form-control' %>
+    </p>
+    <br>
+    <p>
+      <%= f.submit 'Submit Question', class: 'btn btn-success' %>
+    </p>
+<% end %>
