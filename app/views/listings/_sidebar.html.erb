@@ -25,7 +25,7 @@
         </li>
       </ul>
       <%= render 'charges/form' %>
-      <div class="text-center mt-3">
+      <div class="text-center text-muted mt-3">
         <% if @listing.updated_at > @listing.created_at %>
         <%= "Updated " + time_ago_in_words(@listing.updated_at) + " ago" %>
         <% else %>
