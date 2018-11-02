@@ -103,6 +103,10 @@ $pagination-border-color: transparent !default;
 @import "bootstrap";
 @import "font-awesome";
 
+.stripe-button-el {
+  display: none !important;
+}
+
 // Sticky Sidebar
 .sticky {
   position: -webkit-sticky;

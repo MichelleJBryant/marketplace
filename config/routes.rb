@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :listings do
     resources :comments
+    resources :charges, only: [:new, :create]
   end
 
   resources :charges

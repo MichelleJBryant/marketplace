@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
     before_action :authenticate_user!, except: [:index]
-    before_action :find_article!
+    before_action :find_listing!
 
     def index
         @comments = @listing.comments.order(created_at: :desc)
@@ -14,7 +14,7 @@ class CommentsController < ApplicationController
     end
 
     private
-    def find_article!
+    def find_listing!
         @listing = Listing.find(params[:listing_id])
     end
 
