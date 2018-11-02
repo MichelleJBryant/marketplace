@@ -10,11 +10,8 @@ class ListingsController < ApplicationController
   # GET /listings/1
   # GET /listings/1.json
   def show
-    @comments = @listing.comments
-    @comment = Comment.new
-  end
-
-  def add_comment
+    @user_listings = @listing.user.listings.order('created_at DESC').limit(2)
+    session[:listing_id] = params[:id]
   end
 
   # GET /listings/new
@@ -30,7 +27,8 @@ class ListingsController < ApplicationController
   # POST /listings.json
   def create
     @listing = Listing.new(listing_params)
-    @listing.user_id = current_user
+    @listing.user_id = current_user.id
+
     @listing.image.attach(listing_params[:image])
     respond_to do |format|
       if @listing.save

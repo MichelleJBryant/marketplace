@@ -1,0 +1,24 @@
+<h3>More Listings By
+  <span class="text-success"><%= @listing.user.name.split(" ").first %></span>
+</h3>
+
+<div class="row mt-4 mb-5">
+  <% @user_listings.each do |user_listing| %>
+  <div class="col-md-6">
+    <div class="card mb-4 shadow-sm">
+      <% if user_listing.image.attached? %>
+      <%= cl_image_tag(user_listing.image.key, options = {class: 'img-fluid'}) %>
+      <% end %>
+      <div class="card-body">
+        <h5 class="card-title">
+          <%= user_listing.title %>
+        </h5>
+        <p class="card-text">
+          <%= user_listing.description %>
+        </p>
+        <%= link_to 'View Listing', user_listing, class: "btn btn-success text-center" %>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>

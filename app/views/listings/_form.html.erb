@@ -10,14 +10,29 @@
       </div>
     <% end %>
   <div class="row">
-    <div class="col">
+    <div class="col-md-8">
       <div class="form-group">
         <%= form.label :title %>
         <%= form.text_field :title, class: 'form-control' %>
       </div>
-     <div class="field">
-        <%= form.label :image %>
-        <%= form.file_field :image %>
+    </div>
+
+    <div class="col-md-4">
+        <%= form.label :price %>
+        <div class="input-group">
+          <div class="input-group-prepend">
+              <div class="input-group-text">$AUD</div>
+          </div>
+          <%= form.text_field :price, class: 'form-control' %>
+        </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <div class="field my-4">
+          <%= form.label :image %>
+          <%= form.file_field :image, class: 'p-3 h-100 bg-light form-control' %>
       </div>
     </div>
   </div>
@@ -26,32 +41,22 @@
     <div class="col">
       <div class="form-group">
         <%= form.label :subject %>
-        <%= form.text_field :subject, class:'form-control' %>
+        <%= form.select :subject, options_for_select(subjects_helper), {}, class: 'form-control' %>
       </div>
     </div>
 
     <div class="col">
       <div class="form-group">
         <%= form.label :grade %>
-        <%= form.text_field :grade, class:'form-control' %>
+        <%= form.select :grade, options_for_select(grades_helper), {}, class: 'form-control' %>
       </div>
     </div>
 
     <div class="col">
       <div class="form-group">
         <%= form.label :resource_type, 'Type' %>
-        <%= form.text_field :resource_type, class:'form-control' %>
+        <%= form.select :resource_type, options_for_select(resource_helper), {}, class: 'form-control' %>
       </div>
-    </div>
-
-    <div class="col">
-        <%= form.label :price %>
-        <div class="input-group">
-          <div class="input-group-prepend">
-              <div class="input-group-text">$AUD</div>
-          </div>
-          <%= form.text_field :price, class: 'form-control' %>
-        </div>
     </div>
 
 

@@ -14,4 +14,28 @@ module ApplicationHelper
     nil
   end
 
+  def subjects_helper
+    [
+      ['Maths'],
+      ['English'],
+      ['Science'],
+      ['Geography'],
+      ['Computers']
+    ]
+  end
+
+  def grades_helper
+    [
+      ['Primary School'],
+      ['High School']
+    ]
+  end
+
+  def resource_helper
+    [
+      ['PDF'],
+      ['Doc']
+    ]
+  end
+
 end

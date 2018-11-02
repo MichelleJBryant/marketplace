@@ -13,84 +13,46 @@
     </h2>
 
     <p>
-      <strong>Price:</strong>
-      <%= number_to_currency(@listing.price) %>
-    </p>
-
-    <p>
-      <strong>Subject:</strong>
-      <%= @listing.subject %>
-    </p>
-
-    <p>
-      <strong>Grade:</strong>
-      <%= @listing.grade %>
-    </p>
-
-    <p>
-      <strong>Type:</strong>
-      <%= @listing.resource_type %>
-    </p>
-
-    <p>
-      <strong>Description:</strong>
+      <strong>Description:</strong><br>
       <%= @listing.description %>
     </p>
 
-    <div class="actions mb-5">
-      <%= link_to 'Edit Listing', edit_listing_path(@listing), class: 'btn btn-primary mr-2' %>
-      <%= link_to 'Delete Listing', @listing, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
-      <%= link_to 'Back', listings_path, class: 'btn btn-default' %>
+    <hr>
+
+    <div class="d-flex align-items-center my-3">
+      <%= fa_icon 'chevron-circle-right', class: "mr-3 fa-2x text-success" %><span class="mr-2 font-weight-bold">Subject: </span>
+      <%= @listing.subject %>
+    </div>
+
+    <div class="d-flex align-items-center my-3">
+      <%= fa_icon 'chevron-circle-right', class: "mr-3 fa-2x text-success" %><span class="mr-2 font-weight-bold">Grade: </span>
+      <%= @listing.grade %>
+    </div>
+
+    <div class="d-flex align-items-center my-3">
+      <%= fa_icon 'chevron-circle-right', class: "mr-3 fa-2x text-success" %><span class="mr-2 font-weight-bold">Type: </span>
+      <%= @listing.resource_type %>
     </div>
 
     <hr>
 
-    <div class="comments mb-5">
-      <h4>Ask a question?</h4>
-
-      <p>Be the first to ask undefined a question about this product.</p>
-
-      <% @comments.each do |comment| %>
-        <p><%= comment.body %></p>
-      <% end %>
-
-      <% if user_signed_in? %>
-        <%= form_for @comment,  url: { controller: "listings", action: "add_comment" } do |f| %>
-          <div class="form-group">
-            <%= f.label :body %>
-            <%= f.text_area :body, class: "form-control" %>
-          </div>
-          <div class="actions">
-            <%= f.submit 'Create Comment', class: "btn btn-primary" %>
-          </div>
-        <% end %>
-      <% end %>
+    <div class="actions my-3">
+      <%= link_to 'Edit Listing', edit_listing_path(@listing), class: 'btn btn-primary mr-2' %>
+      <%= link_to 'Delete Listing', @listing, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger mr-2' %>
+      <%= link_to 'Back', root_path, class: 'btn btn-secondary ' %>
     </div>
+
+    <hr>
+
+    <%= render 'listings/related_listings' %>
+
+    <hr>
+
+    <%= render 'listings/comments' %>
+
   </div>
 
-  <div class="col-md-4">
-      <div class="card mb-4 shadow-sm sticky">
-          <div class="card-header">
-            <h4 class="my-0 font-weight-normal"><%= @listing.title %></h4>
-          </div>
-          <div class="card-body">
-            <h1 class="card-title pricing-card-title"><%= number_to_currency(@listing.price) %></h1>
-            <ul class="list-unstyled mt-3 mb-4">
-              <p class="text-muted">What's included?</p>
-              <li><%= fa_icon "check-circle", text: "Unlimited downloads" %></li>
-              <li><%= fa_icon "check-circle", text: "Email Support" %></li>
-              <li><%= fa_icon "check-circle", text: "Future Updates" %></li>
-              <li><%= fa_icon "check-circle", text: "30 Day Guarentee" %></li>
-            </ul>
-              <%= link_to 'Buy Now!', charges_path, method: 'post', class: 'btn d-block btn-success py-3' %>
-              <% if @listing.updated_at > @listing.created_at %>          
-              <%= "edited " + time_ago_in_words(@listing.updated_at) + " ago" %>
-              <% else %>
-              <%= "created " + time_ago_in_words(@listing.created_at) + " ago" %>
-              <% end %>
-          </div>
-      </div>
-  </div>
+  <%= render 'listings/sidebar' %>
 
 </div>
 
