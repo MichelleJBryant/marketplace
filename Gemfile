@@ -41,7 +41,7 @@ gem 'devise', '~> 4.5'
 gem 'bootstrap', '~> 4.1.3'
 # jQuery
 gem 'jquery-rails'
-
+gem 'carrierwave', '~> 1.2', '>= 1.2.3'
 gem "cloudinary", "~> 1.9"
 
 gem "activestorage-cloudinary-service", "~> 0.2.0"
