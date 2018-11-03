@@ -14,6 +14,12 @@ class CommentsController < ApplicationController
         redirect_to listing_path(@listing)
     end
 
+    def destroy
+        @comment = @listing.comments.find(params[:id])
+        @comment.destroy
+        redirect_to listing_path(@listing)
+    end
+
     private
     def find_listing!
         @listing = Listing.find(params[:listing_id])

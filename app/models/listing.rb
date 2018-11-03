@@ -6,6 +6,7 @@ class Listing < ApplicationRecord
   validates :description, length: { in: 100..1000 }
 
   has_many :comments, dependent: :destroy
+  has_many :replies, dependent: :destroy
   has_one_attached :image
   belongs_to :user
 
