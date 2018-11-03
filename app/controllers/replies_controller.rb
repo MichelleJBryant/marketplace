@@ -1,13 +1,14 @@
 class RepliesController < ApplicationController
     before_action :authenticate_user!, except: [:index]
     before_action :find_listing!
+    before_action :find_comment!
 
-    def index
-        @replies = @listing.comments.order(created_at: :desc)
+    def new
+        @reply = Reply.new
     end
 
     def create
-        @reply = @listing.comments.new(comment_params)
+        @reply = @comment.build_reply(reply_params)
         @reply.user = current_user
         @reply.user.avatar = current_user.avatar
         @reply.save
@@ -19,7 +20,11 @@ class RepliesController < ApplicationController
         @listing = Listing.find(params[:listing_id])
     end
 
-    def comment_params
+    def find_comment!
+        @comment = Comment.find(params[:comment_id])
+    end
+
+    def reply_params
         params.require(:reply).permit(:reply_body)
     end
 

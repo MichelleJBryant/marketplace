@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   resources :listings do
-    resources :comments
+    resources :comments do
+      resources :replies
+    end
   end
 
   resources :charges
