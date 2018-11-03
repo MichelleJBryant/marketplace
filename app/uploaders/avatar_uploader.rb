@@ -12,6 +12,9 @@ class AvatarUploader < CarrierWave::Uploader::Base
     resize_to_fit(50, 50)
   end
 
+  version :comments do
+    resize_to_fit(100, 100)
+  end
 
   # Choose what kind of storage to use for this uploader:
   # storage :file

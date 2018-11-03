@@ -9,6 +9,7 @@ class CommentsController < ApplicationController
     def create
         @comment = @listing.comments.new(comment_params)
         @comment.user = current_user
+        @comment.user.avatar = current_user.avatar
         @comment.save
         redirect_to listing_path(@listing)
     end
