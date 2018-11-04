@@ -18,5 +18,11 @@ class Listing < ApplicationRecord
     cl_image_tag(self.image.key, :width=>300, :crop=>"fit")
   end
 
-
+  def self.search(search)
+    if search
+     where(["title LIKE ?","%#{search}%"])
+    else
+      all
+    end
+  end
 end
