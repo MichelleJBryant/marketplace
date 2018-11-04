@@ -11,6 +11,7 @@ class CommentsController < ApplicationController
         @comment.user = current_user
         @comment.user.avatar = current_user.avatar
         @comment.save
+        session[:comment_id] = params[:id]
         redirect_to listing_path(@listing)
     end
 

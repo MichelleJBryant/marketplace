@@ -12,7 +12,6 @@ class ListingsController < ApplicationController
   def show
     @user_listings = @listing.user.listings.order('created_at DESC').limit(2)
     session[:listing_id] = params[:id]
-    session[:comment_id] = params[:id]
   end
 
   # GET /listings/new

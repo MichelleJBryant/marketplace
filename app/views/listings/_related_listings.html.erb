@@ -14,7 +14,7 @@
           <%= user_listing.title %>
         </h5>
         <p class="card-text">
-          <%= user_listing.description %>
+          <%= limit_characters_helper(user_listing.description, 200) %>
         </p>
         <%= link_to 'View Listing', user_listing, class: "btn btn-success text-center" %>
       </div>

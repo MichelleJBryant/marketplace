@@ -106,6 +106,10 @@ $web-font-path: "https://fonts.googleapis.com/css?family=Lato:400,700,400italic"
 
 // Custom styles starts here...
 
+body {
+  font-size: 16px;
+}
+
 .stripe-button-el {
   display: none !important;
 }

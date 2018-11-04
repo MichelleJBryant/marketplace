@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :listings do
     resources :comments do
-      resources :replies
+      resources :replies, only: [:create]
     end
   end
 
