@@ -4,7 +4,7 @@ class ListingsController < ApplicationController
   # GET /listings
   # GET /listings.json
   def index
-    @listings = Listing.all.order(created_at: :desc)
+    @listings = Listing.search(params[:search]).order(created_at: :desc).paginate(page: params[:page], per_page: 9)
   end
 
   # GET /listings/1
@@ -78,3 +78,12 @@ class ListingsController < ApplicationController
       params.require(:listing).permit(:title, :description, :subject, :price, :grade, :resource_type, :image)
     end
 end
+
+
+
+
+
+
+
+
+

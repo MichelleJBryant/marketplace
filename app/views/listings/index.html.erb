@@ -11,6 +11,14 @@
     <% end %>
   </div>
 </div>
+
+<%= form_tag listings_path, :method => 'get' do %>
+  <%= text_field_tag :search, params[:search] %>
+  <%= submit_tag "Search" %>
+<% end %>
+
+<%= link_to "Advanced Search", new_search_path %>
+
 <div class="row">
   <% @listings.each do |listing| %>
   <div class="col-md-4">
@@ -30,3 +38,5 @@
   </div>
   <% end %>
 </div>
+
+<%= will_paginate @listings, renderer: BootstrapPagination::Rails, inner_window: 1, outer_window: 0 %>
