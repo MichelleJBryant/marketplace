@@ -30,6 +30,7 @@
         <div class="card-body">
           <h5 class="card-title"><%= listing.title %></h5>
           <p class="card-text"><%= limit_characters_helper(listing.description, 200) %></p>
+          <hr>
           <div class="d-flex align-items-center justify-content-between">
             <%= link_to 'View Listing', listing, class: "btn btn-success" %>
             <p class="lead m-0"><%= number_to_currency(listing.price) %></p>
