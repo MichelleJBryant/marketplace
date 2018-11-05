@@ -9,10 +9,9 @@ class Search < ActiveRecord::Base
         listings = listings.where(["grade LIKE ?","%#{grade}%"]) if grade.present?
         listings = listings.where(["subject LIKE ?","%#{subject}%"]) if subject.present?
         
-        return listings
+        return listings 
 
     end
 
 end
 
-# (:keywords, :price, :grade, :subject)

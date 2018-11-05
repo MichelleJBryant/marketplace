@@ -11,6 +11,9 @@ class SearchesController < ApplicationController
         redirect_to @search
     end
 
+
+    
+
     def show
         @search = Search.find(params[:id])
     end
