@@ -3,7 +3,7 @@ require 'cloudinary'
 class Listing < ApplicationRecord
   validates :title, :description, :subject, :price, :resource_type, presence: true
   validates :price, numericality: { only_integer: true }
-  validates :description, length: { in: 100..1000 }
+  validates :description, length: { in: 10..1000 }
 
   has_many :comments, dependent: :destroy
   has_many :replies, dependent: :destroy
