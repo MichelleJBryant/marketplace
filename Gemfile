@@ -6,7 +6,7 @@ ruby '2.5.1'
 gem 'rails', '~> 5.2.1'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.11'
-gem 'sass-rails', '~> 5.0'
+gem 'sass-rails'
 gem 'uglifier', '>= 1.3.0'
 
 gem 'coffee-rails', '~> 4.2'
@@ -56,3 +56,11 @@ gem 'omniauth-facebook'
 # Stripe
 gem 'stripe'
 
+# Rails_Admin
+gem 'rails_admin', '~> 1.4', '>= 1.4.2'
+
+# Cancan
+gem 'cancancan', '~> 2.3'
+
+# izitoaster - allows for flash error messages
+gem 'izitoast', '~> 1.4'
