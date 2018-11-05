@@ -27,9 +27,9 @@
       <%= render 'charges/form' %>
       <div class="text-center text-muted mt-3">
         <% if @listing.updated_at > @listing.created_at %>
-        <%= "Updated " + time_ago_in_words(@listing.updated_at) + " ago" %> by <%= @listing.user.name %>
+        <%= "Updated " + time_ago_in_words(@listing.updated_at) + " ago" %>
         <% else %>
-        <%= "Created " + time_ago_in_words(@listing.created_at) + " ago" %> by <%= @listing.user.name %>
+        <%= "Created " + time_ago_in_words(@listing.created_at) + " ago" %>
         <% end %>
       </div>
     </div>
