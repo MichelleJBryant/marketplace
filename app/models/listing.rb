@@ -11,6 +11,7 @@ class Listing < ApplicationRecord
   has_many :replies, dependent: :destroy
   has_one_attached :image
   belongs_to :user
+  has_and_belongs_to_many :wishlists, dependent: :destroy
 
   def image_tag
     cl_image_tag(self.image.key, :width=>730, :crop=>"fit")
