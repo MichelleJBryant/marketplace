@@ -3,9 +3,6 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
   validates :name, presence: true
   mount_uploader :avatar, AvatarUploader
-  validates_presence_of   :avatar
-  validates_integrity_of  :avatar
-  validates_processing_of :avatar
   has_many :replies, dependent: :destroy
   
   # Include default devise modules. Others available are:
@@ -13,6 +10,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   devise :omniauthable, :omniauth_providers => [:facebook]
+
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|

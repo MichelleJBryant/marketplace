@@ -31,14 +31,14 @@
         </div>
 
         <div class="col-md-10">
-          <h5 class="text-primary text-uppercase"><span class="text-danger"><%= comment.user.name.split(" ").first %></span> Answered:</h5>
+          <h5 class="text-primary text-uppercase"><span class="text-danger"><%= get_user_first_name(@listing.user.name) %></span> Answered:</h5>
           <p class="text-secondary"><%= comment.reply.reply_body %></p>
         </div>
       </div>
     </div>
     <% else %>
 
-    <%= render 'reply/form' %>
+    <%= render 'reply/form', listing_id: @listing.id, comment_id: comment.id %>
         
   <% end %>
 

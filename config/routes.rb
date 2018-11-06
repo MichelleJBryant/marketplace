@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-  get "/user/:id", to: "user#show", as: 'user'
-  post "/comment/:comment_id/reply", to: "reply#create", as: 'reply'
 
   resources :listings do
-    resources :comments
+    resources :comments do
+      resources :reply, only: [:create]
+    end
   end
 
   resources :charges
@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   get "about", to: "pages#about"
   get "contact_us", to: "pages#contact"
+  get "/user/:id", to: "user#show", as: 'user'
   root to: 'listings#index'
 
 end
