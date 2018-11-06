@@ -13,12 +13,7 @@
   </div>
 </div>
 
-<%= form_tag listings_path, :method => 'get', class: 'form-inline d-flex justify-content-end my-2 my-lg-0' do %>
-  <%= text_field_tag :search, params[:search], class: 'form-control w-25 mr-sm-2', type: "search", placeholder: 'Search Listings' %>
-  <%= submit_tag "Search", class: 'btn btn-outline-success my-2 my-sm-0' %>
-<% end %>
-
-<%= link_to "Advanced Search", new_search_path, class: 'd-block text-right my-3' %>
+<p><%= link_to "Advanced Search", new_search_path %></p>
 
 <div class="row">
   <% @listings.each do |listing| %>
@@ -41,4 +36,5 @@
   <% end %>
 </div>
 
-<%= will_paginate @listings, renderer: BootstrapPagination::Rails, inner_window: 1, outer_window: 0 %>
+<%= will_paginate @listings, renderer: WillPaginate::ActionView::BootstrapLinkRenderer, inner_window: 1, outer_window: 0 %>
+

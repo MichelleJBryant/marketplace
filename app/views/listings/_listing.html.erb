@@ -1,0 +1,12 @@
+<div class="listing">
+  <h2><%= link_to listing.title, listing %></h2>
+  <div class="details">
+    <%= number_to_currency(listing.price) %>
+    <% if listing.subject %>
+      | Subject: <%= listing.subject %>
+    <% end %>
+    <% if listing.grade %>
+    | Grade: <%= listing.grade %>
+    <% end %>
+  </div>
+</div>

@@ -16,6 +16,7 @@ module ApplicationHelper
 
   def subjects_helper
     [
+      [''],
       ['Maths'],
       ['English'],
       ['Science'],
@@ -29,6 +30,7 @@ module ApplicationHelper
 
   def grades_helper
     [
+      [ '' ],
       ['Primary School'],
       ['High School']
     ]
