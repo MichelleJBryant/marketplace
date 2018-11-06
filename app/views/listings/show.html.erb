@@ -13,34 +13,33 @@
     </h2>
 
     <p>
-      <strong>Price:</strong>
-      <%= number_to_currency(@listing.price) %>
-    </p>
-
-    <p>
-      <strong>Subject:</strong>
-      <%= @listing.subject %>
-    </p>
-
-    <p>
-      <strong>Grade:</strong>
-      <%= @listing.grade %>
-    </p>
-
-    <p>
-      <strong>Type:</strong>
-      <%= @listing.resource_type %>
-    </p>
-
-    <p>
-      <strong>Description:</strong>
+      <strong>Description:</strong><br>
       <%= @listing.description %>
     </p>
 
-    <div class="actions mb-5">
+    <hr>
+
+    <div class="d-flex align-items-center my-3">
+      <%= fa_icon 'chevron-circle-right', class: "mr-3 fa-2x text-success" %><span class="mr-2 font-weight-bold">Subject: </span>
+      <%= @listing.subject %>
+    </div>
+
+    <div class="d-flex align-items-center my-3">
+      <%= fa_icon 'chevron-circle-right', class: "mr-3 fa-2x text-success" %><span class="mr-2 font-weight-bold">Grade: </span>
+      <%= @listing.grade %>
+    </div>
+
+    <div class="d-flex align-items-center my-3">
+      <%= fa_icon 'chevron-circle-right', class: "mr-3 fa-2x text-success" %><span class="mr-2 font-weight-bold">Type: </span>
+      <%= @listing.resource_type %>
+    </div>
+
+    <hr>
+
+    <div class="actions my-3">
       <%= link_to 'Edit Listing', edit_listing_path(@listing), class: 'btn btn-primary mr-2' %>
-      <%= link_to 'Delete Listing', @listing, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
-      <%= link_to 'Back', root_path, class: 'btn btn-default bg-light' %>
+      <%= link_to 'Delete Listing', @listing, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger mr-2' %>
+      <%= link_to 'Back', root_path, class: 'btn btn-secondary ' %>
     </div>
 
     <hr>

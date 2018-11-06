@@ -12,24 +12,24 @@
       <ul class="list-unstyled mt-3 mb-4">
         <p class="text-muted">What's included?</p>
         <li>
-          <%= fa_icon "check-circle", text: "Unlimited downloads" %>
+          <%= fa_icon "check-circle", text: "Unlimited downloads", class: 'mr-2 text-success' %>
         </li>
         <li>
-          <%= fa_icon "check-circle", text: "Email Support" %>
+          <%= fa_icon "check-circle", text: "Email Support", class: 'mr-2 text-success' %>
         </li>
         <li>
-          <%= fa_icon "check-circle", text: "Future Updates" %>
+          <%= fa_icon "check-circle", text: "Future Updates", class: 'mr-2 text-success' %>
         </li>
         <li>
-          <%= fa_icon "check-circle", text: "30 Day Guarentee" %>
+          <%= fa_icon "check-circle", text: "30 Day Guarentee", class: 'mr-2 text-success' %>
         </li>
       </ul>
       <%= render 'charges/form' %>
-      <div class="text-center mt-3">
+      <div class="text-center text-muted mt-3">
         <% if @listing.updated_at > @listing.created_at %>
-        <%= "Updated " + time_ago_in_words(@listing.updated_at) + " ago" %>
+        <%= "Updated " + time_ago_in_words(@listing.updated_at) + " ago" %> by <%= @listing.user.name %>
         <% else %>
-        <%= "Created " + time_ago_in_words(@listing.created_at) + " ago" %>
+        <%= "Created " + time_ago_in_words(@listing.created_at) + " ago" %> by <%= @listing.user.name %>
         <% end %>
       </div>
     </div>
