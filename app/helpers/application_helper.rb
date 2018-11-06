@@ -42,4 +42,12 @@ module ApplicationHelper
     truncate(source, length: maximum)
   end
 
+  def get_user_first_name(name)
+    name.split(" ").first
+  end
+
+  def get_user_last_name(name)
+    name.split(" ").last
+  end
+
 end

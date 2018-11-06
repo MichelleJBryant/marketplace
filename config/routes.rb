@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  get "/user/:id", to: "user#show", as: 'user'
+  post "/comment/:comment_id/reply", to: "reply#create", as: 'reply'
+
   resources :listings do
-    resources :comments do
-      resources :replies, only: [:create]
-    end
+    resources :comments
   end
 
   resources :charges
