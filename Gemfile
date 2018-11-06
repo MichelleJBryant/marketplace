@@ -37,9 +37,10 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # LIST OF GEMS ADDED
 # Devise
 gem 'devise', '~> 4.5'
-# Bootstrap v4
+gem 'omniauth-facebook'
+
+# Bootstrap
 gem 'bootstrap', '~> 4.1.3'
-# jQuery
 gem 'jquery-rails'
 
 # Images
@@ -50,8 +51,6 @@ gem "image_processing", "~> 1.7"
 
 # Font Awesome
 gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.4'
-
-gem 'omniauth-facebook'
 
 # Stripe
 gem 'stripe'
@@ -64,3 +63,6 @@ gem 'cancancan', '~> 2.3'
 
 # izitoaster - allows for flash error messages
 gem 'izitoast', '~> 1.4'
+# Paginate
+gem 'will_paginate', '~> 3.1', '>= 3.1.6'
+gem 'will_paginate-bootstrap', '~> 1.0', '>= 1.0.1'
