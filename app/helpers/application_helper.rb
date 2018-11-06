@@ -21,7 +21,10 @@ module ApplicationHelper
       ['English'],
       ['Science'],
       ['Geography'],
-      ['Computers']
+      ['Computers'],
+      ['Art'],
+      ['Music'],
+      ['Social Studies']
     ]
   end
 
