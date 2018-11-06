@@ -13,6 +13,7 @@ class CommentsController < ApplicationController
         @comment.save
         session[:comment_id] = params[:id]
         redirect_to listing_path(@listing)
+        flash[:notice] = "Your question has been posted"
     end
 
     def destroy

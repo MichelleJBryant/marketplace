@@ -13,32 +13,28 @@
   </div>
 </div>
 
-<%= form_tag listings_path, :method => 'get', class: 'form-inline d-flex justify-content-end my-2 my-lg-0' do %>
-  <%= text_field_tag :search, params[:search], class: 'form-control w-25 mr-sm-2', type: "search", placeholder: 'Search Listings' %>
-  <%= submit_tag "Search", class: 'btn btn-outline-success my-2 my-sm-0' %>
-<% end %>
-
-<%= link_to "Advanced Search", new_search_path, class: 'd-block text-right my-3' %>
+<p><%= link_to "Advanced Search", new_search_path %></p>
 
 <div class="row">
   <% @listings.each do |listing| %>
   <div class="col-md-4">
       <div class="card mb-4 shadow-sm">
         <% if listing.image.attached? %>
-            <%= cl_image_tag(listing.image.key, options = {class: 'img-fluid'}) %>
+            <%= cl_image_tag(listing.image.key, :width=>400, :height=>400, :crop=>:fill, class: 'img-fluid')%>
         <% end %>
         <div class="card-body">
           <h5 class="card-title"><%= listing.title %></h5>
-          <p class="card-text"><%= limit_characters_helper(listing.description, 200) %></p>
+          <p><%= limit_characters_helper(listing.description, 150) %></p>
           <hr>
-          <div class="d-flex align-items-center justify-content-between">
-            <%= link_to 'View Listing', listing, class: "btn btn-success" %>
-            <p class="lead m-0"><%= number_to_currency(listing.price) %></p>
-          </div>
+            <div class="d-flex align-items-center justify-content-between">
+              <%= link_to 'View Listing', listing, class: "btn btn-success" %>
+              <p class="lead m-0"><%= number_to_currency(listing.price) %></p>
+            </div>
         </div>
       </div>
   </div>
   <% end %>
 </div>
 
-<%= will_paginate @listings, renderer: BootstrapPagination::Rails, inner_window: 1, outer_window: 0 %>
+<%= will_paginate @listings, renderer: WillPaginate::ActionView::BootstrapLinkRenderer, inner_window: 1, outer_window: 0 %>
+

@@ -16,16 +16,21 @@ module ApplicationHelper
 
   def subjects_helper
     [
+      [''],
       ['Maths'],
       ['English'],
       ['Science'],
       ['Geography'],
-      ['Computers']
+      ['Computers'],
+      ['Art'],
+      ['Music'],
+      ['Social Studies']
     ]
   end
 
   def grades_helper
     [
+      [ '' ],
       ['Primary School'],
       ['High School']
     ]

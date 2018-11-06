@@ -13,14 +13,17 @@ The high rate of teacher drop out as been attribute to numerous issues, but with
 
 In order to assist in teacher rentention the two sided marketplace is to alleviate the planning time by making high quality and differentiated lesson content available to teachers from different subject areas. 
 
-This is accomplished through a two sided marketplace, TeacherSource. With TeacherSource.
+This is accomplished through a two sided marketplace, TeacherSource. With TeacherSource 
 
 
 ### Functionality / features
+- Login/signup
 - search function
 - variety of subject content - differentiated content
 - profile
 - supervisor - so that hod can purchase and see
+- download resources
+- ask questions, reply to questions as a seller
 
 
 
