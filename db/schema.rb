@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_03_082623) do
+ActiveRecord::Schema.define(version: 2018_11_05_222024) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -69,6 +69,16 @@ ActiveRecord::Schema.define(version: 2018_11_03_082623) do
     t.index ["comment_id"], name: "index_replies_on_comment_id"
     t.index ["listing_id"], name: "index_replies_on_listing_id"
     t.index ["user_id"], name: "index_replies_on_user_id"
+  end
+
+  create_table "searches", force: :cascade do |t|
+    t.string "keywords"
+    t.string "subject"
+    t.string "grade"
+    t.decimal "min_price"
+    t.decimal "max_price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
