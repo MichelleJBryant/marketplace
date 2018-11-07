@@ -10,9 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 2018_11_07_010608) do
-
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -105,13 +103,13 @@ ActiveRecord::Schema.define(version: 2018_11_07_010608) do
     t.index ["wishlist_id"], name: "index_users_on_wishlist_id"
   end
 
-
   create_table "users_roles", id: false, force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "role_id"
     t.index ["role_id"], name: "index_users_roles_on_role_id"
     t.index ["user_id", "role_id"], name: "index_users_roles_on_user_id_and_role_id"
     t.index ["user_id"], name: "index_users_roles_on_user_id"
+  end
 
   create_table "wishlists", force: :cascade do |t|
     t.bigint "listing_id"
@@ -120,7 +118,6 @@ ActiveRecord::Schema.define(version: 2018_11_07_010608) do
     t.datetime "updated_at", null: false
     t.index ["listing_id"], name: "index_wishlists_on_listing_id"
     t.index ["user_id"], name: "index_wishlists_on_user_id"
-
   end
 
   add_foreign_key "comments", "listings"
