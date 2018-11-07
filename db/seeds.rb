@@ -17,17 +17,31 @@ users = [
     },
     {
         email: "mitchadmin@coder.com",
-        password: '234567',
-        password_confirmation: '234567',
+        password: '123456',
+        password_confirmation: '123456',
         name: 'Mitchell',
-        preferred_name: 'Mitch',
+        preferred_name: 'Bikini face',
         superadmin_role: true
        
     },
     {
+        email: "beth@coder.com",
+        password: '123456',
+        password_confirmation: '123456',
+        name: 'Beth',
+        preferred_name: 'Beth',
+    },
+    {
+        email: "chelleby@coder.com",
+        password: '123456',
+        password_confirmation: '123456',
+        name: 'Chelleby',
+        preferred_name: 'Chilly',
+    },
+    {
         email: "glennadmin@coder.com",
-        password: '345678',
-        password_confirmation: '345678',
+        password: '123456',
+        password_confirmation: '123456',
         name: 'Glenn',
         preferred_name: 'Glenninis',
         superadmin_role: true
