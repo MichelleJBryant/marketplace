@@ -26,8 +26,12 @@
         </li>
       </ul>
       <%= render 'charges/form' %>
-
-      <%= link_to 'Add to Wishlist', add_to_wishlist_path({listing_id: @listing.id, user_id: current_user.id}), method: "post", class: 'btn btn-secondary btn-block' %>
+      
+      <%- unless current_user.favorite_listings.exists?(id: @listing.id) -%>
+      <%= link_to 'Add to Wishlist', favorite_listings_path(listing_id: @listing), method: :post, class: 'btn btn-primary' %>
+      <%- else -%>
+      <%= link_to 'Remove from Wishlist', favorite_listing_path(@listing), method: :delete, class: 'btn btn-danger' %>
+      <%- end -%>
 
       <div class="text-center text-muted mt-3">
         <% if @listing.updated_at > @listing.created_at %>

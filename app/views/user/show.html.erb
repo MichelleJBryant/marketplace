@@ -30,3 +30,6 @@
 
 <h4 class="text-muted mt-4">My Wishlist</h4>
 <p>You have no items in your wishlist to display</p>
+<% current_user.favorite_listings.each do |listing| %>
+  <%= listing.description %>
+<% end %>

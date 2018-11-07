@@ -6,9 +6,8 @@ Rails.application.routes.draw do
       resources :reply, only: [:create, :destroy]
     end
   end
-  resources :listings
-  post '/user/:user_id/wishlist', to: 'wishlists#create', as: 'add_to_wishlist'
-  get '/user/:user_id/wishlist', to: 'wishlists#show', as: 'wishlist'
+ 
+  resources :favorite_listings, only: [:create, :destroy]
   resources :charges
   resources :searches
   devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks", registrations: "registrations" }
