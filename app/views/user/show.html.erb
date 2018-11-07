@@ -1,8 +1,14 @@
 
-<h1><%= @user.name %></h1>
+<h4 class="my-4">Welcome to your dashboard, <span class="text-success"><%= @user.name %></span></h4>
 
 <h4 class="text-muted">My Listings</h4>
 <div class="row">
+<% if @listings.count == 0 %>
+<div class="col-md-6">
+  <p>You have no listings to display, create one now!</p>
+  <%= link_to "Create Listing", new_listing_path, class: "btn btn-success" %>
+  </div>
+<% end %>
   <% @listings.each do |listing| %>
   <div class="col-md-3">
       <div class="card mb-4 shadow-sm">
@@ -22,4 +28,5 @@
   <% end %>
 </div>
 
-<h4 class="text-muted">Purchased Items</h4>
+<h4 class="text-muted mt-4">My Wishlist</h4>
+<p>You have no items in your wishlist to display</p>

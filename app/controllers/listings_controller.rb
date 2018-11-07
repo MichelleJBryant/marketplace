@@ -1,9 +1,6 @@
 class ListingsController < ApplicationController
   before_action :set_listing, only: [:show, :edit, :update, :destroy]
-
   
-
-
 
   # GET /listings
   # GET /listings.json
@@ -14,9 +11,11 @@ class ListingsController < ApplicationController
   # GET /listings/1
   # GET /listings/1.json
   def show
+    # render 'show_without_edit' unless  @listing.user_id = current_user.id
     @user_listings = @listing.user.listings.order('created_at DESC').limit(2)
     session[:listing_id] = params[:id]
   end
+
 
   # GET /listings/new
   def new
@@ -81,13 +80,4 @@ class ListingsController < ApplicationController
     def listing_params
       params.require(:listing).permit(:title, :description, :subject, :price, :grade, :resource_type, :image)
     end
-end
-
-
-
-
-
-
-
-
-
+  end

@@ -19,7 +19,7 @@ This is accomplished through a two sided marketplace, TeacherSource. With Teache
 ### Functionality / features
 - Login/signup
 - search function
-- variety of subject content
+- variety of subject content - differentiated content
 - profile
 - supervisor - so that hod can purchase and see
 - download resources
@@ -55,12 +55,21 @@ This is accomplished through a two sided marketplace, TeacherSource. With Teache
 
 ### Wireframes
 
+
+
 ### Database Entity Relationship Diagrams
 
 
 
 # Short Answer Questions
 ### 1. What is the need (i.e. challenge) that you will be addressing in your project?
+The Australian Education system is currenlty experiencing increasing issues of teacher retention and wellbeing. It is estimated that teachers, both in the primary and secondary, leave the profession within 5 years. 
+
+The high rate of teacher drop out as been attribute to numerous issues, but with the prime cause for drop out is due to increased workloads of lesssion prepartion, delivery, reporting and collaboration. 
+
+In order to assist in teacher rentention the two sided marketplace is to alleviate the planning time by making high quality and differentiated lesson content available to teachers from different subject areas. 
+
+This is accomplished through a two sided marketplace, TeacherSource. With TeacherSource.
 
 ### 2. Identify the problem you’re trying to solve by building this particular marketplace App? Why is it a problem that needs solving?
 ### 3. Describe the project will you be conducting and how. your App will address the needs.

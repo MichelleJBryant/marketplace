@@ -1,13 +1,14 @@
 <div class="comments mb-5">
-  <h4 class="my-3 p-4 text-white bg-dark">Product Questions & Answers</h4>
+  <h4 class="my-3 p-4 text-white bg-success">Product Questions & Answers</h4>
   <hr>
 
   <p>
     <%= @listing.comments.count %> Questions Asked...</p>
   <%= render @listing.comments %>
 
-
   <hr>
+<% if current_user != @listing.user %>
   <p class="lead">Ask a Question:</p>
   <%= render 'comments/form' %>
 </div>
+ <% end %>
