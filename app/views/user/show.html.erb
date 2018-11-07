@@ -28,5 +28,32 @@
   <% end %>
 </div>
 
-<h4 class="text-muted mt-4">My Wishlist</h4>
-<p>You have no items in your wishlist to display</p>
+<h4 class="text-muted">My Wishlist</h4>
+<div class="row">
+  <% @listings.each do |listing| %>
+    <% unless current_user.favorite_listings.exists?(id: listing.id) %>
+      <div class="col-md-4">
+        <p>You have no products in your wishlist</p>
+      </div>
+    <% else %>
+      <% current_user.favorite_listings.each do |listing| %>
+        <div class="col-md-3">
+            <div class="card mb-4 shadow-sm">
+              <% if listing.image.attached? %>
+                  <%= cl_image_tag(listing.image.key, width: 400, height: 300, crop: :fill, class: 'img-fluid')%>
+              <% end %>
+              <div class="card-body">
+                <h5 class="card-title"><%= listing.title %></h5>
+                <p><%= limit_characters_helper(listing.description, 150) %></p>
+                <hr>
+                  <div class="d-flex align-items-center justify-content-between">
+                    <%= link_to 'View Listing', listing, class: "btn btn-success" %>
+                    <p class="lead m-0"><%= number_to_currency(listing.price) %></p>
+                  </div>
+              </div>
+            </div>
+        </div>
+    <% end %>
+    <% end %>
+  <% end %>
+</div>
