@@ -6,8 +6,9 @@
     <%= @listing.comments.count %> Questions Asked...</p>
   <%= render @listing.comments %>
 
-
   <hr>
+<% if current_user != @listing.user %>
   <p class="lead">Ask a Question:</p>
   <%= render 'comments/form' %>
 </div>
+ <% end %>
