@@ -1,7 +1,7 @@
 <h2>User Wishlist</h2>
 <%= @user.wishlist.listings.sum %>
 <div class="row">
-  <% @wishlist.each do |wishlist_item| %>
+  <% @user.wishlist.listings.each do |wishlist_item| %>
     <div class="col-md-3">
         <div class="card mb-4 shadow-sm">
           <% if wishlist_item.image.attached? %>

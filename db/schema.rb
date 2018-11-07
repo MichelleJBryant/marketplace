@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_06_141652) do
+ActiveRecord::Schema.define(version: 2018_11_07_010608) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,9 +56,7 @@ ActiveRecord::Schema.define(version: 2018_11_06_141652) do
     t.integer "price"
     t.string "grade"
     t.string "resource_type"
-    t.bigint "wishlist_id"
     t.index ["user_id"], name: "index_listings_on_user_id"
-    t.index ["wishlist_id"], name: "index_listings_on_wishlist_id"
   end
 
   create_table "replies", force: :cascade do |t|
@@ -99,14 +97,15 @@ ActiveRecord::Schema.define(version: 2018_11_06_141652) do
     t.boolean "superadmin_role", default: false
     t.boolean "supervisor_role", default: false
     t.boolean "user_role", default: true
+    t.bigint "wishlist_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["wishlist_id"], name: "index_users_on_wishlist_id"
   end
 
   create_table "wishlists", force: :cascade do |t|
     t.bigint "listing_id"
     t.bigint "user_id"
-    t.integer "wishlist_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["listing_id"], name: "index_wishlists_on_listing_id"
@@ -116,10 +115,10 @@ ActiveRecord::Schema.define(version: 2018_11_06_141652) do
   add_foreign_key "comments", "listings"
   add_foreign_key "comments", "users"
   add_foreign_key "listings", "users"
-  add_foreign_key "listings", "wishlists"
   add_foreign_key "replies", "comments"
   add_foreign_key "replies", "listings"
   add_foreign_key "replies", "users"
+  add_foreign_key "users", "wishlists"
   add_foreign_key "wishlists", "listings"
   add_foreign_key "wishlists", "users"
 end
