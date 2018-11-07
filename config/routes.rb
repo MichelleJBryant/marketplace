@@ -6,7 +6,8 @@ Rails.application.routes.draw do
       resources :reply, only: [:create]
     end
   end
-
+ 
+  resources :listings
   resources :charges
   resources :searches
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
