@@ -9,6 +9,12 @@ class ReplyController < ApplicationController
         redirect_to listing_path(@listing)
     end
 
+    def destroy
+        @reply = @comment.reply
+        @reply.destroy
+        redirect_to listing_path(@listing)
+    end
+
     private
     def find_comment!
         @comment = Comment.find(params[:comment_id])
