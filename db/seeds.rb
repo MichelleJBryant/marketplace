@@ -6,22 +6,33 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)ß
 
-users = User.create([
-    { 
-        name: 'Michelle'
-    }, 
-    { 
-        preferred_name: 'Chelle'
+users = [
+    {
+        email: "chelleadmin@coder.com",
+        password: '123456',
+        password_confirmation: '123456',
+        name: 'Michelle',
+        preferred_name: 'Chelle',
+        superadmin_role: true
     },
-    { 
-        email: 'chelle@coder.com' 
-    }, 
-    { 
-        password: '123456'
-    }, 
-    { 
-        password_confirmation: '123456' 
-    }, 
-    { 
-        superadmin_role: 'true' 
-    }])
+    {
+        email: "mitchadmin@coder.com",
+        password: '234567',
+        password_confirmation: '234567',
+        name: 'Mitchell',
+        preferred_name: 'Mitch',
+        superadmin_role: true
+       
+    },
+    {
+        email: "glennadmin@coder.com",
+        password: '345678',
+        password_confirmation: '345678',
+        name: 'Glenn',
+        preferred_name: 'Glenninis',
+        superadmin_role: true
+    }    
+]
+
+User.create!(users)
+# User.where("email LIKE ?", "%admin%").each { |user| user.add_role(:superadmin) }

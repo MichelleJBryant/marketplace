@@ -63,14 +63,14 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 end
 
-config.action_mailer.delivery_method = :smtp #assign mailgun attribtues
-config.action_mailer.smtp_settings = {
-  :authentication => :plain,
-  :address => "smtp.mailgun.org",
-  :port => 587,
-  :domain => "teachersource.mailgun.org",
-  :user_name => "postmaster@teachersourse.mailgun.org",
-  :password => "240454mjb"
-}
+#config.action_mailer.delivery_method = :smtp #assign mailgun attribtues
+#config.action_mailer.smtp_settings = {
+ # :authentication => :plain,
+  #:address => "smtp.mailgun.org",
+  #:port => 587,
+  #:domain => "teachersource.mailgun.org",
+  #:user_name => "postmaster@teachersourse.mailgun.org",
+  #:password => "240454mjb"
+#}
 
 
