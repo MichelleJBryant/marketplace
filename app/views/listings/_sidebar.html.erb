@@ -1,9 +1,9 @@
 <div class="col-md-4">
   <div class="card mb-4 shadow-sm sticky">
-    <div class="card-header text-muted">
-      <% if @listing.user.avatar.url.present? %>
-          <%= image_tag @listing.user.avatar.url(:thumbnail), class: 'rounded-circle default-avatar mr-3' %>
-        <% end %>
+    <div class="card-header">
+      <% if current_user && current_user.avatar.url.present? %>
+          <%= image_tag current_user.avatar.url(:thumbnail), class: 'rounded-circle default-avatar mr-3' %>
+      <% end %>
         Posted by <%= @listing.user.name %>
     </div>
     <div class="card-body">
