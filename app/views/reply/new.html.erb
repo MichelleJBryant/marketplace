@@ -1,0 +1,22 @@
+<%= form_for [@listing, @listing.comments.reply.build ] do |f| %>
+<% if @listing.errors.any? %>
+<div id="error_explanation">
+  <h2>
+    <%= pluralize(listing.errors.count, "error") %> prohibited this listing from being saved:</h2>
+  <ul>
+    <% listing.errors.full_messages.each do |message| %>
+    <li>
+      <%= message %>
+    </li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+<p>
+  <%= f.text_area :reply_body, class: 'form-control' %>
+</p>
+<br>
+<p>
+  <%= f.submit 'Reply', class: 'btn btn-warning' %>
+</p>
+<% end %>

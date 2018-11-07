@@ -16,16 +16,21 @@ module ApplicationHelper
 
   def subjects_helper
     [
+      [''],
       ['Maths'],
       ['English'],
       ['Science'],
       ['Geography'],
-      ['Computers']
+      ['Computers'],
+      ['Art'],
+      ['Music'],
+      ['Social Studies']
     ]
   end
 
   def grades_helper
     [
+      [ '' ],
       ['Primary School'],
       ['High School']
     ]
@@ -36,6 +41,18 @@ module ApplicationHelper
       ['PDF'],
       ['Doc']
     ]
+  end
+
+  def limit_characters_helper(source, maximum)
+    truncate(source, length: maximum)
+  end
+
+  def get_user_first_name(name)
+    name.split(" ").first
+  end
+
+  def get_user_last_name(name)
+    name.split(" ").last
   end
 
 end

@@ -1,34 +1,40 @@
-<div class="jumbotron text-center mt-5 bg-dark">
+<div class="jumbotron text-center mt-5 bg-primary">
     <div class="container">
     <% if user_signed_in? %>
-      <h1 class="text-white">Welcome, <%= current_user.name.split(" ").first %> </h1>
+      <h1 class="text-white">Welcome, <%= get_user_first_name(current_user.name) %> </h1>
       <p class="text-white">As a teacher, in the Queensland Curriculum, I want to be able to access differentiated content for a variety of subjects in the secondary education system, so that the teacher workload is alleviated and higher order content is delivered across the state.</p>
-      <p><%= link_to 'Create New Listing', new_listing_path, class: "btn btn-home btn-success", role: "button" %></p>
+      <p><%= link_to 'CREATE NEW LISTING', new_listing_path, class: "btn btn-lg btn-success px-5 py-3", role: "button" %></p>
     <% else %>
       <h1 class="text-white">Ready to signup?</h1>
       <p class="text-white">As a teacher, in the Queensland Curriculum, I want to be able to access differentiated content for a variety of subjects in the secondary education system, so that the teacher workload is alleviated and higher order content is delivered across the state.</p>
-      <p><%= link_to 'Register Today', new_user_registration_path, class: "btn btn-home btn-info", role: "button" %></p>
+      <h5 class="text-white d-flex align-items-center justify-content-center mb-3"><%= fa_icon "check-circle", class: 'mr-3 fa-2x' %> Join for access to over 3 million resources</h5>
+      <p><%= link_to 'REGISTER NOW!', new_user_registration_path, class: "btn btn-lg btn-success px-5 py-3", role: "button" %></p>
     <% end %>
   </div>
 </div>
+
+<p><%= link_to "Advanced Search", new_search_path %></p>
+
 <div class="row">
   <% @listings.each do |listing| %>
   <div class="col-md-4">
       <div class="card mb-4 shadow-sm">
         <% if listing.image.attached? %>
-            <%= cl_image_tag(listing.image.key, options = {class: 'img-fluid'}) %>
+            <%= cl_image_tag(listing.image.key, :width=>400, :height=>400, :crop=>:fill, class: 'img-fluid')%>
         <% end %>
         <div class="card-body">
           <h5 class="card-title"><%= listing.title %></h5>
-          <p class="card-text"><%= listing.description %></p>
-          <div class="d-flex align-items-center justify-content-between">
-            <%= link_to 'View Listing', listing, class: "btn btn-success" %>
-            <p class="lead m-0"><%= number_to_currency(listing.price) %></p>
-          </div>
+          <p><%= limit_characters_helper(listing.description, 150) %></p>
+          <hr>
+            <div class="d-flex align-items-center justify-content-between">
+              <%= link_to 'View Listing', listing, class: "btn btn-success" %>
+              <p class="lead m-0"><%= number_to_currency(listing.price) %></p>
+            </div>
         </div>
       </div>
   </div>
   <% end %>
 </div>
 
+<%= will_paginate @listings, renderer: WillPaginate::ActionView::BootstrapLinkRenderer, inner_window: 1, outer_window: 0 %>
 

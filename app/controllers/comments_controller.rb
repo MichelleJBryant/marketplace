@@ -9,7 +9,16 @@ class CommentsController < ApplicationController
     def create
         @comment = @listing.comments.new(comment_params)
         @comment.user = current_user
+        @comment.user.avatar = current_user.avatar
         @comment.save
+        session[:comment_id] = params[:id]
+        redirect_to listing_path(@listing)
+        flash[:notice] = "Your question has been posted"
+    end
+
+    def destroy
+        @comment = @listing.comments.find(params[:id])
+        @comment.destroy
         redirect_to listing_path(@listing)
     end
 
