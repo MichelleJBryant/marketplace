@@ -4,16 +4,14 @@ class WishlistsController < ApplicationController
 
   def create
     @wishlist = @user.build_wishlist
-    @wishlist = @user.wishlist.listings.new
     @wishlist = @user.wishlist.listings << @listing
-    @user.wishlist.listings
+    byebug
     redirect_to wishlist_path(@user)
     flash[:notice] = "You added #{@listing.title} to your wishlist"
   end
 
   def show
-    @wishlist = @user.build_wishlist
-    @wishlist = @user.wishlist.listings
+    @user.build_wishlist
   end
 
   private

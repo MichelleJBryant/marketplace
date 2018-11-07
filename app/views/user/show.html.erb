@@ -6,6 +6,7 @@
 <% if @listings.count == 0 %>
 <div class="col-md-6">
   <p>You have no listings to display, create one now!</p>
+  <%= link_to "Create Listing", new_listing_path, class: "btn btn-success" %>
   </div>
 <% end %>
   <% @listings.each do |listing| %>
@@ -27,4 +28,5 @@
   <% end %>
 </div>
 
-<h4 class="text-muted mt-4">Purchased Items</h4>
+<h4 class="text-muted mt-4">My Wishlist</h4>
+<p>You have no items in your wishlist to display</p>
