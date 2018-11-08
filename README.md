@@ -49,6 +49,19 @@ The marketplace utilises Stripe digital payments. The users of the site can also
 
 ### Screenshots
 
+ <img width="1393" alt="screen shot 2018-11-08 at 3 05 11 pm" src="https://user-images.githubusercontent.com/42559562/48229815-dd5a2d00-e3f4-11e8-9d6c-a51765aebcc5.png">
+
+<img width="1392" alt="screen shot 2018-11-08 at 3 05 25 pm" src="https://user-images.githubusercontent.com/42559562/48229826-e814c200-e3f4-11e8-9707-ef0f3db999be.png">
+
+<img width="1388" alt="screen shot 2018-11-08 at 3 06 30 pm" src="https://user-images.githubusercontent.com/42559562/48229859-fd89ec00-e3f4-11e8-8b22-09bca26182b4.png">
+
+<img width="1381" alt="screen shot 2018-11-08 at 3 06 17 pm" src="https://user-images.githubusercontent.com/42559562/48229846-fa8efb80-e3f4-11e8-8113-0c7c8736bc39.png">
+
+<img width="1396" alt="screen shot 2018-11-08 at 3 06 52 pm" src="https://user-images.githubusercontent.com/42559562/48229867-07135400-e3f5-11e8-8192-1c55f1330023.png">
+
+<img width="1404" alt="screen shot 2018-11-08 at 3 07 03 pm" src="https://user-images.githubusercontent.com/42559562/48229871-0a0e4480-e3f5-11e8-97b5-015b4b5b3a7e.png">
+
+<img width="1404" alt="screen shot 2018-11-08 at 3 08 30 pm" src="https://user-images.githubusercontent.com/42559562/48229880-0e3a6200-e3f5-11e8-84d2-e9a6cf14f4cc.png">
 
 
 ### Tech stack (e.g. html, css, deployment platform, etc)
@@ -106,7 +119,7 @@ The aesthetic design of the marketplace at present is reliant on bootstrap frame
 
 
 ### Database Entity Relationship Diagrams
-
+![database](https://user-images.githubusercontent.com/42559562/48229925-21e5c880-e3f5-11e8-8f91-268cae27ccf4.png)
 
 
 # Short Answer Questions
@@ -200,6 +213,8 @@ Favorites - belongs_to: user, favorited
 
 
 ### 17. Describe the way tasks are allocated and tracked in your project.
+![day 2 trello screen shot](https://user-images.githubusercontent.com/42559562/48229719-a257f980-e3f4-11e8-9f68-eacaa0e2fa01.png)
+
 As a team we used Trello to create tasks and then used trello as a ticket system to slowly work through tick off required jobs. As we are beginners we found constant additions or requirements we had not considered so a lot of tasks were thought of and added to the trello board along the way. The deeper we got into the project the less effective trello got as we required a more direct messaging system to simultaneously problem solve together, for this we used Slack.
 
 ### 18. Discuss how Agile methodology is being implemented in your project.
