@@ -107,6 +107,7 @@ ActiveRecord::Schema.define(version: 2018_11_07_035225) do
     t.boolean "supervisor_role", default: false
     t.boolean "user_role", default: true
     t.string "avatar"
+    t.bigint "wishlist_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["wishlist_id"], name: "index_users_on_wishlist_id"
@@ -136,4 +137,7 @@ ActiveRecord::Schema.define(version: 2018_11_07_035225) do
   add_foreign_key "replies", "comments"
   add_foreign_key "replies", "listings"
   add_foreign_key "replies", "users"
+  add_foreign_key "users", "wishlists"
+  add_foreign_key "wishlists", "listings"
+  add_foreign_key "wishlists", "users"
 end
