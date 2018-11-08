@@ -92,6 +92,21 @@ The tech stack utilised for TeacherSource includes Ruby on Rails with included b
 ### Instructions on how to setup, configure and use your App.
 
 To run the app on a local browser, the user must complete a bundle install, to allow for gems utilised in the marketplace to be available from a new machine which wishes to run to the marketplace. 
+The .env file will also be needed to access the website locally. Details are below
+
+Env file
+CD_NAME="leffers"
+CD_API_KEY="841684111317618"
+CD_API_SECRET="ud29V0396LeKGsmqtEjc7WU-Jdg"
+
+DB_USERNAME="postgres"
+DB_PASSWORD="postgres"
+
+FACEBOOK_APP_ID="251789428825272"
+FACEBOOK_SECRET="8bf5fa26087665d373edfcd773dc3430"
+PUBLISHABLE_KEY="pk_test_nfDl4h8OzqKKI2I3NOKnaPF4"
+SECRET_KEY="sk_test_s6cFdVr5JV3jFc34VtqRPaIe"
+
 
 # Design documentation 
 ### Design process
@@ -192,7 +207,7 @@ Is an Authorisation gem that allows users to be assigned certain permissions dep
 ##### Paginate
 Allows for multiple pages be navigated from the homepage. 
 
-###### Rspec
+##### Rspec
  A behaviour driven test framework to test the features of the app. 
 
 ### 6. Identify the database to be used in your App and provide a justification for your choice.
@@ -259,6 +274,8 @@ Agile cycle was repeated in replanning the purpose of authorisation and what nee
 Glenn is the designated master for github. Glenn setup two branches (master, staging). Michelle and Mitch set up a clone branch under their own repos. Work was committed and pushed to origin master, then a pull request was made to Glenn’s staging branch. Pull request conflicts were resolved by any member of the team.  Glenn’s master branch was intended to only ever pull complete work and serve as a backup to a very active staging branch. All members were very active in pushing and pulling all progress no matter the size of the change. Apart for user error, this method of source control provided for us to be very efficient and effective. It was also a very good learning curve.
 
 ### 20. Provide an overview and description of your Testing process.
+In the first iteration of this project, Rspec was examined to be utilised, but a majority of the testing was done by manually by users. 
+
 ### 21. Discuss and analyse requirements related to information system security.
 Implementation of authorization and authentication allows for the data to be validated and stored in the database. Another security measure to be looked at is PCI compliance, this however won’t effect us due to the fact we are using a 3rd party service called Stripe. Overall the security of user data should be the most important thing to consider when developing an application.
 
